@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 
-const blogs = require('./api/blog-articles');
-const logger = require('../logger/logger');
+const blogs = require('./src/routers/blogs');
+const logger = require('./logger/logger');
 
-app.set('views', 'src/views');
+app.set('views', './src/views');
 app.set('view engine', 'pug');
 
 app.use((req, res, next) => {
