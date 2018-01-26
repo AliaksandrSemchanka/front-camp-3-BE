@@ -1,0 +1,27 @@
+{
+  "name": "front-camp-3-be",
+  "version": "1.0.0",
+  "description": "NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliaksandrSemchanka/front-camp-3-BE.git"
+  },
+  "author": "Aliaksandr Semchanka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AliaksandrSemchanka/front-camp-3-BE/issues"
+  },
+  "homepage": "https://github.com/AliaksandrSemchanka/front-camp-3-BE#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "pug": "^2.0.0-rc.4",
+    "winston": "^3.0.0-rc1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}
