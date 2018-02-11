@@ -1,0 +1,15 @@
+
+
+block content
+
+
+    h1 Log In
+    form(method='post' action='http://localhost:3000/users/login')
+        div
+            label(for='username') username
+            input(type='text' id='username' placeholder='username' name='username')
+        div
+            label(for='password') Password
+            input(type='password' id='password' placeholder='password' name='password')
+        button(type='submit') Log in
+        a(href='http://localhost:3000/users/signup') Sign up

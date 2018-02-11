@@ -1,0 +1,15 @@
+block content
+
+
+    h1 Sign up
+    form(method='post' action='http://localhost:3000/users/signup')
+        div
+            label(for='username') username
+            input(type='text' id='username' placeholder='username' name='username')
+        div
+            label(for='email') email
+            input(type='text' id='email' placeholder='email' name='email')
+        div
+            label(for='password') Password
+            input(type='password' id='password' placeholder='password' name='password')
+        button(type='submit') Sign up
