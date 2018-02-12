@@ -1,0 +1,12 @@
+.form {
+    width: 300px;
+    margin: 50px auto;
+}
+
+.btn-primary {
+    margin-right: 15px;
+}
+
+p {
+    color: red;
+}

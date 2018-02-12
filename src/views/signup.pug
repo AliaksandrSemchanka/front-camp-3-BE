@@ -1,15 +1,24 @@
-block content
+doctype html
+html(lang="en")
+    head
+        style
+            include ./form.css
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+    body
 
+    block content
+        div.form
+            #message
+            p #{message}
+            form(method='post' action='http://localhost:3000/users/signup')
+                div.form-group
+                    label(for='username') username
+                    input.form-control(type='text' id='username' placeholder='username' name='username')
+                div.form-group
+                    label(for='email') email
+                    input.form-control(type='text' id='email' placeholder='email' name='email')
+                div.form-group
+                    label(for='password') Password
+                    input.form-control(type='password' id='password' placeholder='password' name='password')
+                button.btn.btn-primary(type='submit') Sign up
 
-    h1 Sign up
-    form(method='post' action='http://localhost:3000/users/signup')
-        div
-            label(for='username') username
-            input(type='text' id='username' placeholder='username' name='username')
-        div
-            label(for='email') email
-            input(type='text' id='email' placeholder='email' name='email')
-        div
-            label(for='password') Password
-            input(type='password' id='password' placeholder='password' name='password')
-        button(type='submit') Sign up

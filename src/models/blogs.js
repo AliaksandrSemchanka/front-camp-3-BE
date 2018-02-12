@@ -1,8 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const blogScheme = new Schema(
-    { author: String,
-      text: String,
+    {
+        author: {
+            type: String,
+            required: true,
+        },
+      text: {
+          type: String,
+          required: true,
+      },
     },
     { versionKey: false }
 );
