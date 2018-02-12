@@ -1,4 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
+const bCrypt = require('bcrypt-nodejs');
+
 const User = require('../models/user');
 
 module.exports = (passport) => {
@@ -10,10 +12,11 @@ module.exports = (passport) => {
             if (user) {
                 return done(null, false, req.flash('message', 'User already exist'));
             } else {
+                const a =  createHash(password);
                 const createdUser = {
                     username: username,
                     email: req.param('email'),
-                    password: password,
+                    password: a,
                 };
                 User.create(createdUser, (err, user) => {
                     if(err) {
@@ -23,5 +26,7 @@ module.exports = (passport) => {
                 });
             }
         })
-    }))
+    }));
+
+    const createHash = (password) => bCrypt.hashSync(password);
 };

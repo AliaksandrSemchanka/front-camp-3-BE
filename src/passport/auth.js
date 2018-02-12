@@ -1,4 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
+const bCrypt = require('bcrypt-nodejs');
+
 const User = require('../models/user');
 
 module.exports = (passport) => {
@@ -9,10 +11,12 @@ module.exports = (passport) => {
             if (!user){
                 return done(null, false, req.flash('message', 'User Not found'));
                 }
-            if (user.password !== password){
+            if (!checkPassword(password, user)){
                 return done(null, false, req.flash('message', 'Invalid Password'));
             }
             return done(null, user);
         })
-    }))
+    }));
+
+    const checkPassword = (password, user) => bCrypt.compareSync(password, user.password)
 };
