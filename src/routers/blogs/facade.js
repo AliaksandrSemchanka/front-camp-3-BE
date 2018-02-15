@@ -1,6 +1,6 @@
 const Facade = require('../../common/facade/facade');
 const Blogs = require('../../models/blogs');
 
-class blogsFacade extends Facade {}
+class BlogsFacade extends Facade {}
 
-module.exports = new blogsFacade(Blogs);
+module.exports = new BlogsFacade(Blogs);

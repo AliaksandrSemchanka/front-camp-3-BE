@@ -1,17 +1,18 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 const blogScheme = new Schema(
-    {
-        author: {
-            type: String,
-            required: true,
-        },
-      text: {
-          type: String,
-          required: true,
-      },
+  {
+    author: {
+      type: String,
+      required: true,
     },
-    { versionKey: false }
+    text: {
+      type: String,
+      required: true,
+    },
+  },
+  { versionKey: false },
 );
 
 const Blogs = mongoose.model('Blogs', blogScheme);

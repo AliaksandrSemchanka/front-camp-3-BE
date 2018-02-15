@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -18,16 +17,16 @@ mongoose.connect('mongodb://localhost:27017/blogs');
 
 app.set('views', './src/views');
 app.set('view engine', 'pug');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(express.json());
+app.use(express.urlencoded());
 app.use(cookieParser());
 app.use(flash());
 app.use((req, res, next) => {
-    logger.info(req.method + ' ' + req.url);
-    next();
+  logger.info(`${req.method} ${req.url}`);
+  next();
 });
 
-app.use(session({secret: 'magic'}));
+app.use(session({ secret: 'magic' }));
 app.use(passport.initialize());
 app.use(passport.session());
 passportInit(passport);
@@ -35,12 +34,12 @@ passportInit(passport);
 app.use('/blogs', isAuthenticated, blogs);
 app.use('/users', users);
 
-app.use((req, res) => res.render('index', { title: 'Error', message: 'error 404'}));
+app.use((req, res) => res.render('index', { title: 'Error', message: 'error 404' }));
 
-app.use((err, req, res, next) => {
-    res.status(500).send({error: err})
+app.use((err, req, res) => {
+  res.status(500).send({ error: err });
 });
 
 app.listen(3000, () => {
-    console.log('listening on port 3000');
+  console.log('listening on port 3000');
 });
