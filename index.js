@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
+const cors = require('cors');
 
 
 const blogs = require('./src/routers/blogs/blogs');
@@ -31,7 +32,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 passportInit(passport);
 
-app.use('/blogs', isAuthenticated, blogs);
+app.options('*', cors());
+app.use(cors({
+  origin: true,
+  credentials: true,
+}));
+app.use('/blogs', blogs);
 app.use('/users', users);
 
 app.use((req, res) => res.render('index', { title: 'Error', message: 'error 404' }));
